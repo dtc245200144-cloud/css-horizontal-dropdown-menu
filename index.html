@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Dropdown Ngang Với CSS</title>
+    <style>
+        /* 1. Reset CSS cơ bản và cố định phông chữ cho trang */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            padding: 30px;
+            background-color: #f4f4f4;
+        }
+
+        /* 2. Đặt phân vùng cho trình đơn chính (#menu) */
+        #menu {
+            height: 40px;
+            background-color: #333333;
+            border-bottom: 2px solid #222222;
+        }
+
+        #menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* 3. Bộ chọn cho các phần tử li trong trình đơn chính (xếp nằm ngang) */
+        #menu > ul > li {
+            float: left;
+            position: relative;
+        }
+
+        /* 4. Bộ chọn cho các thẻ liên kết a trong trình đơn */
+        #menu a {
+            display: block;
+            width: 140px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        /* 5. Đổi màu nền sang màu đỏ khi rê con trỏ chuột qua các liên kết */
+        #menu a:hover {
+            background-color: #cc0000;
+        }
+
+        /* 6. Bộ chọn cho danh sách con (Sub-menu/Dropdown) */
+        #menu ul ul {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            background-color: #444444;
+            visibility: hidden; /* Mặc định ẩn trình đơn con */
+            z-index: 100;
+        }
+
+        /* Định dạng các mục chọn trong trình đơn con xếp dọc */
+        #menu ul ul li {
+            float: none;
+            position: relative;
+        }
+
+        #menu ul ul a {
+            width: 160px; /* Độ rộng riêng cho trình đơn con nếu cần */
+            text-align: left;
+            padding-left: 15px;
+            border-bottom: 1px solid #555555;
+        }
+
+        /* 7. Hiển thị trình đơn con khi rê chuột qua mục chọn ở trình đơn cha */
+        #menu li:hover > ul {
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="menu">
+        <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li>
+                <a href="#">Sản phẩm</a>
+                <ul>
+                    <li><a href="#">Laptop</a></li>
+                    <li><a href="#">Điện thoại</a></li>
+                    <li><a href="#">Máy tính bảng</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Dịch vụ</a>
+                <ul>
+                    <li><a href="#">Bảo hành</a></li>
+                    <li><a href="#">Sửa chữa</a></li>
+                    <li><a href="#">Tư vấn</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Tin tức</a></li>
+            <li><a href="#">Liên hệ</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>
